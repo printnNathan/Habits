@@ -1,4 +1,5 @@
-﻿using Habits.Domain.Users;
+﻿using Dapper;
+using Habits.Domain.Users;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using System;
@@ -21,17 +22,14 @@ namespace Habits.Data.Repository
 
         public async Task Insert(User user)
         {
-            const string query = @"Insert into user(id, email, passwordHash, createdAt) values
-                                 (@id, @emai, @passwordHash, @createdAt);";
+            const string query = @"Insert into users (id, email, passwordHash, createdAt) values
+                                 (@id, @email, @passwordHash, @createdAt);";
 
-            using var command = new MySqlCommand(query, _unitOfWork.Connection, _unitOfWork.Transaction);
-
-            command.Parameters.AddWithValue("@Id", user.Id);
-            command.Parameters.AddWithValue("@email", user.Email);
-            command.Parameters.AddWithValue("@passwordHash", user.PasswordHash);
-            command.Parameters.AddWithValue("@createdAt", user.CreatedAt);
-
-            await command.ExecuteScalarAsync();
+            await _unitOfWork.Connection.ExecuteAsync(
+                query,
+                user,
+                _unitOfWork.Transaction
+            );
         }
     }
 }

@@ -1,3 +1,4 @@
+using Habits.Data;
 using Habits.Data.Repository;
 using Habits.Domain.Services;
 using Habits.Domain.Users;
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Dependency Injection
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<UnitOfWork>();
+
 
 // Add services to the container.
 
