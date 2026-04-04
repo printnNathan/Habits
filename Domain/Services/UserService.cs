@@ -1,4 +1,5 @@
-﻿using Habits.Domain.Users;
+﻿using Habits.Domain.Entities;
+using Habits.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,24 @@ namespace Habits.Domain.Services
         {
             var userToCreate = new User
             {
-                Id = Guid.NewGuid(),
+                Id = Guid.NewGuid(),    
                 Email = user.Email,
                 PasswordHash = user.PasswordHash,
                 CreatedAt = DateTime.UtcNow
             };
             await userRepository.Insert(userToCreate);
         }
+
+        //public async Task UpdateUser(User user)
+        //{
+        //    var userToUpdate = new User
+        //    {
+        //        Id = Guid.NewGuid(),
+        //        Email = user.Email,
+        //        PasswordHash = user.PasswordHash
+        //    };
+        //    await userRepository.Update(userToUpdate);
+        //}
+          
     }
 }

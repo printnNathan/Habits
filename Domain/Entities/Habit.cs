@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Habits.Domain.Habits
+namespace Habits.Domain.Entities
 {
     public class Habit
     {

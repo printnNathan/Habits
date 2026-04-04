@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Habits.Domain.HabitsLogs
+namespace Habits.Domain.Entities
 {
     public class HabitLog
     {
