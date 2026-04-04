@@ -1,4 +1,5 @@
-﻿using Habits.Domain.Users;
+﻿using Habits.Domain.Entities;
+using Habits.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Habits.Host.Controllers

@@ -1,7 +1,7 @@
 using Habits.Data;
 using Habits.Data.Repository;
+using Habits.Domain.Interfaces;
 using Habits.Domain.Services;
-using Habits.Domain.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
