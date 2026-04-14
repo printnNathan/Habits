@@ -22,16 +22,16 @@ namespace Habits.Domain.Services
             await userRepository.Insert(userToCreate);
         }
 
-        //public async Task UpdateUser(User user)
-        //{
-        //    var userToUpdate = new User
-        //    {
-        //        Id = Guid.NewGuid(),
-        //        Email = user.Email,
-        //        PasswordHash = user.PasswordHash
-        //    };
-        //    await userRepository.Update(userToUpdate);
-        //}
-          
+        public async Task UpdateUser(User user)
+        {
+            var userToUpdate = new User
+            {
+               // Id = Guid.NewGuid(),
+                Email = user.Email,
+                PasswordHash = user.PasswordHash
+            };
+            await userRepository.Update(userToUpdate);
+        }
+
     }
 }

@@ -10,5 +10,9 @@ namespace Habits.Domain.Interfaces
     public interface IUserRepository
     {
         Task Insert(User user);
+        Task Update(User user);
+        Task Delete(Guid id);
+        Task<User> GetById(Guid id);
+        Task<IEnumerable<User>> GetAll();
     }
 }
